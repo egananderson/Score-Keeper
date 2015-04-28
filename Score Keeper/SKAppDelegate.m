@@ -7,16 +7,36 @@
 //
 
 #import "SKAppDelegate.h"
+#import "ViewController.h"
 
 @implementation SKAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+
+
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
-    return YES;
+    
+    
+    ViewController *rootController = [ViewController new];
+    
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:rootController];
+    
+    //    navigationController.title = @"Score Keeper";
+    //    navigationController.view.backgroundColor = [UIColor grayColor];
+    
+    
+    self.window.rootViewController = navigationController;
+    
+    //    self.window.rootViewController.title = @"Score Keeper";
+    //    self.window.rootViewController.view.backgroundColor = [UIColor grayColor];
+
+    
+    
+return YES;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
